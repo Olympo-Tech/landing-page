@@ -18,16 +18,18 @@
     <header class="header">
         <nav class="container">
             <div class="nav-wrapper">
-                <div class="logo">
-                    <img src="assets/olympotech/Logotipo2 - AzulVetor.svg" alt="Apollo Logo" class="logo-img">
-                </div>
+                <a href="#home" class="brand" aria-label="Ir para início">
+                    <img src="assets/olympotech/SimboloVetor - Branco.svg" alt="OlympoTech" class="brand-logo">
+                    <span class="brand-name">OLYMPOTECH</span>
+                </a>
                 <ul class="nav-menu">
                     <li><a href="#home">Início</a></li>
                     <li><a href="#about">Sobre</a></li>
-                    <li><a href="#features">Recursos</a></li>
+                    <li><a href="#about-project">ApolloERP</a></li>
+                    <li><a href="#modules-drag">Módulos</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
-                <a href="#contact" class="btn-primary">Começar Agora</a>
+                <a href="#contact" class="nav-cta">Fale Conosco</a>
             </div>
         </nav>
     </header>
@@ -37,8 +39,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
+                    <span class="hero-label">By OlympoTech</span>
                     <h1 class="hero-title">
-                        Tecnologia e confiança para o setor funerário
+                        Tecnologia e confiança para o setor <span class="highlight-gold">funerário</span>
                     </h1>
                     <p class="hero-description">
                         A <B>OlympoTech</B> apresenta Apollo ERP - A plataforma completa e integrada que conecta todos
@@ -46,78 +49,112 @@
                     </p>
                     <div class="hero-cta">
                         <a href="#contact" class="btn-primary btn-large">Solicitar Demonstração</a>
-                        <a href="#about" class="btn-secondary btn-large">Saiba Mais</a>
                     </div>
+                    <a href="#about" class="hero-more">
+                        <span>Saiba mais</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </div>
-                <div class="hero-image">
-                    <div class="hero-illustration">
-                        <img src="assets/apolo/apoloVetorSimboloAzul.svg" alt="Apollo Platform" class="floating-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- About OlympoTech Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header section-header-about">
+                <span class="section-label">Sobre a Empresa</span>
+                <h2 class="section-title">Quem somos nós?</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-card-text">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                            do eiusmod tempor.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                            do eiusmod tempor.
+                        </p>
+                    </div>
+                    <div class="about-card-media">
+                        <img src="assets/olympotech-mockup.svg" alt="Logo olympotech" class="about-phone">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- About Apollo Section - Sobre o Projeto -->
+    <section id="about-project" class="about about-project">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Sobre o Projeto</span>
                 <h2 class="section-title">Uma solução completa para sua empresa</h2>
                 <p class="section-description">
-                    Nosso sistema é projeto com módulos integrados que atendem todas as necessidades áreas de uma
-                    funerária, desde o atendimento inicial até a gestão financeira e administrativa.
+                    Do primeiro atendimento ao fechamento financeiro, o apoloERP integra processos, equipes e decisões
+                    em tempo real.
                 </p>
             </div>
-            <div class="about-content">
-                <div class="about-image">
+            <div class="about-project-content">
+                <div class="about-project-image">
                     <img src="assets/apolo/LogoVetor(Dourado).svg" alt="Apollo Features">
                 </div>
-                <div class="about-text">
-                    <div class="about-item">
-                        <div class="about-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <div class="about-project-text">
+                    <div class="about-project-item">
+                        <div class="about-project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                <path d="M9 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M9 8h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
                         <div>
-                            <h3>Eficiência Comprovada</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
+                            <h3>Gestão de Atendimento Integrada</h3>
+                            <p>Registre atendimentos, acompanhe famílias, organize cerimônias e mantenha todo o
+                                histórico centralizado.</p>
                         </div>
                     </div>
-                    <div class="about-item">
-                        <div class="about-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    <div class="about-project-item">
+                        <div class="about-project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13 10V3L4 14H11V21L20 10H13Z" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M3 9h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M7 13h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                             </svg>
                         </div>
                         <div>
-                            <h3>Rápida Implementação</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula nulla sed ex
-                                ullamcorper, ac tempor velit sagittis.</p>
+                            <h3>Controle Financeiro Real</h3>
+                            <p>Fluxo de caixa, contas, contratos e relatórios financeiros conectados à operação diária.
+                            </p>
                         </div>
                     </div>
-                    <div class="about-item">
-                        <div class="about-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    <div class="about-project-item">
+                        <div class="about-project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 15V17M6 21H18C19.1046 21 20 20.1046 20 19V13C20 11.8954 19.1046 11 18 11H6C4.89543 11 4 11.8954 4 13V19C4 20.1046 4.89543 21 6 21ZM16 11V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V11H16Z"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                                <path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M6 19V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M12 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M18 19V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                             </svg>
                         </div>
                         <div>
-                            <h3>Segurança Máxima</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod nisi vitae eros
-                                bibendum consectetur.</p>
+                            <h3>Indicadores que Apoiam Decisões</h3>
+                            <p>Dashboards inteligentes que mostram o que realmente impacta sua receita e organização.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -125,86 +162,76 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Names Belt (novo carrossel estreito) -->
+    <section id="names-belt" class="names-belt" aria-label="Carrossel de nomes">
+        <div class="names-belt-viewport">
+            <div id="namesBeltTrack" class="names-belt-track"></div>
+        </div>
+    </section>
+
+    <!-- Drag Cards Carousel  -->
+    <section id="modules-drag" class="modules-drag">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Recursos</span>
                 <h2 class="section-title">Tudo que você precisa em um só lugar</h2>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 10L12 4L21 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M5 10V18H19V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M8 14H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        </svg>
+        </div>
+        <div id="dragCardsViewport" class="drag-cards-viewport" aria-label="Carrossel arrastável de módulos">
+            <div class="drag-cards-track">
+                <article class="drag-card">
+                    <h3 class="drag-card-title">Processo de Compras</h3>
+                    <p>Gerencie todo o processo, da solicitação à entrega.</p>
+                    <img src="assets/compras-mockup.svg" alt="Mockup Compras" class="drag-card-mock" />
+                </article>
+                <article class="drag-card">
+                    <h3 class="drag-card-title">Nota Fiscal</h3>
+                    <p>Emissão fiscal integrada aos atendimentos e vendas.</p>
+                    <div class="drag-card-icon" aria-hidden="true">
+                        <img src="assets/nota-fiscal.svg" alt="" class="drag-card-icon-img">
                     </div>
-                    <h3>API Integrada com Banco</h3>
-                    <p>Conecte-se diretamente ao banco de dados para gerenciar informações em tempo real.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" />
-                            <path d="M4 20C4 16.6863 7.13401 14 12 14C16.866 14 20 16.6863 20 20" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" />
-                        </svg>
+                </article>
+                <article class="drag-card">
+                    <h3 class="drag-card-title">Gerencie seus Planos</h3>
+                    <p>Contratos e serviços recorrentes com previsibilidade.</p>
+                    <img src="assets/card-plano.svg" alt="Planos" class="drag-card-component" />
+                </article>
+                <article class="drag-card">
+                    <h3 class="drag-card-title">Módulo de Caixa</h3>
+                    <p>Sessões, suprimentos e transações, tudo integrado.</p>
+                    <img src="assets/caixa-mockup.png" alt="Caixa" class="drag-card-mock" />
+                </article>
+                <article class="drag-card">
+                    <h3 class="drag-card-title">Módulo Cemitério</h3>
+                    <p>Gestão de jazigos e ocupações com histórico centralizado.</p>
+                    <div class="drag-card-icon" aria-hidden="true">
+                        <img src="assets/lapide.svg" alt="" class="drag-card-icon-img">
                     </div>
-                    <h3>CRM</h3>
-                    <p>Gerencie clientes e relacionamentos de forma eficiente e integrada.</p>
+                </article>
+                <article class="drag-card">
+                    <h3 class="drag-card-title">Plano de Contas</h3>
+                    <p>Organize lançamentos e categorias com clareza.</p>
+                    <img src="assets/contas-mockup.svg" alt="Plano de Contas" class="drag-card-mock" />
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="platform-prepared" class="platform-prepared">
+        <div class="container">
+            <div class="prepared-card">
+                <div class="prepared-text">
+                    <h2>Uma plataforma preparada para a realidade das funerárias</h2>
+                    <ul class="prepared-list">
+                        <li>Desenvolvido especificamente para funerárias;</li>
+                        <li>Integração total entre contratos, serviços e financeiro;</li>
+                        <li>Estrutura preparada para crescimento;</li>
+                        <li>Painéis estratégicos personalizados;</li>
+                        <li>Controle de permissões por usuário.</li>
+                    </ul>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="9" cy="20" r="1" stroke="currentColor" stroke-width="2" />
-                            <circle cx="17" cy="20" r="1" stroke="currentColor" stroke-width="2" />
-                            <path d="M3 4H5L7 14H19L21 8H6" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h3>Processo de Compras</h3>
-                    <p>Gerencie todo o processo de compras, desde a solicitação até a aprovação e entrega.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
-                            <path
-                                d="M12 8V16M9.5 10.5C9.5 9.12 10.62 8 12 8C13.38 8 14.5 9.12 14.5 10.5C14.5 11.88 13.38 13 12 13C10.62 13 9.5 14.12 9.5 15.5C9.5 16.88 10.62 18 12 18C13.38 18 14.5 16.88 14.5 15.5"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>Módulos Financeiros</h3>
-                    <p>Controle de fluxo de caixa, lançamentos contábeis e relatórios financeiros integrados, contas a
-                        pagar e receber.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 8H18L17 20H7L6 8Z" stroke="currentColor" stroke-width="2"
-                                stroke-linejoin="round" />
-                            <path d="M9 8V6C9 4.89543 9.89543 4 11 4H13C14.1046 4 15 4.89543 15 6V8"
-                                stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <h3>Loja Virtual</h3>
-                    <p>Opção de E-commerce para a venda de produtos e serviços de forma integrada ao sistema.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 19V5M4 19H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                            <path d="M8 15L12 11L16 13L20 7" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h3>BI - Analytics</h3>
-                    <p>Visualize dados em tempo real com dashboards interativos e personalizáveis.</p>
-                </div>
+                <img src="assets/apolo/apoloVetorSimboloBranco.svg" alt="Símbolo da plataforma"
+                    class="prepared-illustration" />
             </div>
         </div>
     </section>
