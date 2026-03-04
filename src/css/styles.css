@@ -145,6 +145,39 @@ h6 {
     transform: translateY(-2px);
 }
 
+/* Hamburger button — hidden on desktop */
+.nav-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.nav-mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #F2F3EA;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.nav-mobile-toggle.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-mobile-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-mobile-toggle.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 .btn-primary {
     background: var(--primary-color);
     color: white;
@@ -1036,8 +1069,34 @@ h6 {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .nav-mobile-toggle {
+        display: flex;
+    }
+
     .nav-menu {
         display: none;
+    }
+
+    .nav-menu.is-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 61px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--primary-dark);
+        padding: 32px 24px;
+        gap: 8px;
+        z-index: 999;
+        overflow-y: auto;
+    }
+
+    .nav-menu.is-open li a {
+        font-size: 20px;
+        padding: 12px 0;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .footer-content {
@@ -1103,5 +1162,104 @@ h6 {
         flex-direction: column;
         gap: 16px;
         text-align: center;
+    }
+
+    /* Hero */
+    .hero {
+        height: auto;
+        min-height: 100svh;
+    }
+
+    /* Seções — paddings */
+    .about,
+    .features,
+    .modules-drag,
+    .contact,
+    .platform-prepared {
+        padding: 60px 0;
+    }
+
+    .contact-form-wrapper {
+        padding: 24px;
+    }
+
+    .contact-wrapper {
+        gap: 32px;
+    }
+
+    /* Textos gerais */
+    .section-description {
+        font-size: 16px;
+    }
+
+    .contact-info h2 {
+        font-size: 28px;
+    }
+
+    .contact-info p {
+        font-size: 16px;
+    }
+
+    .prepared-text h2 {
+        font-size: 26px;
+    }
+
+    .prepared-list {
+        font-size: 16px;
+    }
+
+    /* About project */
+    .about-project-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-card-text p {
+        font-size: 1rem;
+    }
+
+    /* Drag cards section */
+    .drag-cards-viewport {
+        margin-left: 0;
+        height: auto;
+        padding: 0 16px 24px;
+    }
+
+    .drag-cards-track {
+        gap: 16px;
+    }
+
+    .drag-card {
+        min-width: 260px;
+        padding: 24px 20px;
+    }
+
+    .drag-card-title {
+        font-size: 20px;
+    }
+
+    .drag-card p {
+        font-size: 16px;
+    }
+
+    .drag-card-mock {
+        display: none;
+    }
+
+    .drag-card-component {
+        width: 160px;
+    }
+
+    .drag-card-icon-img {
+        height: 140px;
+    }
+
+    /* Carrosséis */
+    .carousel-item {
+        font-size: 14px;
+    }
+
+    .names-belt-item {
+        font-size: 14px;
     }
 }

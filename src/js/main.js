@@ -129,6 +129,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Mobile menu toggle
+  var mobileToggle = document.querySelector('.nav-mobile-toggle');
+  var navMenu = document.querySelector('.nav-menu');
+
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', function () {
+      var isOpen = navMenu.classList.toggle('is-open');
+      mobileToggle.classList.toggle('is-open', isOpen);
+      mobileToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    navMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navMenu.classList.remove('is-open');
+        mobileToggle.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
   // Contact form submission
   var contactForm = document.getElementById('contactForm');
   var formMessage = document.getElementById('formMessage');
