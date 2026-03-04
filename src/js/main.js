@@ -54,52 +54,86 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var viewport = document.getElementById('dragCardsViewport');
   if (viewport) {
-    var isDown = false;
-    var startX = 0;
-    var scrollStart = 0;
+    var isDown = false, startX = 0, scrollStart = 0;
+    var velX = 0, lastMouseX = 0, lastMoveTime = 0, animFrame = null;
+    var nudgeTimer1 = null, nudgeTimer2 = null;
+    var dragWrapper = viewport.parentElement;
+    var dragHint = dragWrapper ? dragWrapper.querySelector('.drag-hint') : null;
 
+    function hideHint() {
+      if (dragHint) dragHint.classList.add('hidden');
+      if (dragWrapper) dragWrapper.classList.add('scrolled');
+      viewport.removeEventListener('mousedown', hideHint);
+      viewport.removeEventListener('touchstart', hideHint);
+      viewport.removeEventListener('scroll', hideHint);
+    }
+
+    function cancelNudge() {
+      clearTimeout(nudgeTimer1);
+      clearTimeout(nudgeTimer2);
+    }
+
+    function applyMomentum() {
+      if (Math.abs(velX) < 0.5) return;
+      viewport.scrollLeft += velX;
+      velX *= 0.90;
+      animFrame = requestAnimationFrame(applyMomentum);
+    }
+
+    /* Desktop: mouse drag com inércia */
     viewport.addEventListener('mousedown', function (e) {
+      cancelNudge();
+      hideHint();
+      cancelAnimationFrame(animFrame);
       isDown = true;
       viewport.classList.add('dragging');
       startX = e.pageX - viewport.offsetLeft;
       scrollStart = viewport.scrollLeft;
+      lastMouseX = e.pageX;
+      lastMoveTime = Date.now();
+      velX = 0;
     });
 
-    viewport.addEventListener('mouseleave', function () {
+    function endDrag() {
+      if (!isDown) return;
       isDown = false;
       viewport.classList.remove('dragging');
-    });
+      animFrame = requestAnimationFrame(applyMomentum);
+    }
 
-    viewport.addEventListener('mouseup', function () {
-      isDown = false;
-      viewport.classList.remove('dragging');
-    });
+    viewport.addEventListener('mouseup', endDrag);
+    viewport.addEventListener('mouseleave', endDrag);
 
     viewport.addEventListener('mousemove', function (e) {
       if (!isDown) return;
       e.preventDefault();
       var x = e.pageX - viewport.offsetLeft;
-      var walk = (x - startX);
-      viewport.scrollLeft = scrollStart - walk;
+      viewport.scrollLeft = scrollStart - (x - startX);
+      var now = Date.now();
+      velX = (lastMouseX - e.pageX) / Math.max(now - lastMoveTime, 1) * 14;
+      lastMouseX = e.pageX;
+      lastMoveTime = now;
     });
 
-    viewport.addEventListener('touchstart', function (e) {
-      isDown = true;
-      startX = e.touches[0].pageX - viewport.offsetLeft;
-      scrollStart = viewport.scrollLeft;
-    }, { passive: false });
+    /* Mobile: browser gerencia nativamente */
+    viewport.addEventListener('touchstart', function () {
+      cancelNudge();
+      hideHint();
+    }, { passive: true });
 
-    viewport.addEventListener('touchend', function () {
-      isDown = false;
-    });
+    viewport.addEventListener('mousedown', hideHint);
+    viewport.addEventListener('touchstart', hideHint, { passive: true });
+    viewport.addEventListener('scroll', hideHint);
 
-    viewport.addEventListener('touchmove', function (e) {
-      if (!isDown) return;
-      e.preventDefault();
-      var x = e.touches[0].pageX - viewport.offsetLeft;
-      var walk = (x - startX);
-      viewport.scrollLeft = scrollStart - walk;
-    }, { passive: false });
+    /* Nudge de load */
+    nudgeTimer1 = setTimeout(function () {
+      var firstCard = viewport.querySelector('.drag-card');
+      if (!firstCard) return;
+      viewport.scrollTo({ left: Math.round(firstCard.offsetWidth * 0.65), behavior: 'smooth' });
+      nudgeTimer2 = setTimeout(function () {
+        viewport.scrollTo({ left: 0, behavior: 'smooth' });
+      }, 900);
+    }, 1400);
   }
 
   // Header interaction on scroll

@@ -676,6 +676,68 @@ h6 {
 }
 
 /* Modules Drag Section (novo entre features e contato) */
+.drag-cards-wrapper {
+    position: relative;
+}
+
+.drag-cards-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 48px;
+    width: 120px;
+    background: linear-gradient(to right, transparent, var(--bg-primary));
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity 0.4s;
+}
+
+.drag-cards-wrapper.scrolled::after {
+    opacity: 0;
+}
+
+.drag-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding-top: 20px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    user-select: none;
+    transition: opacity 0.5s;
+}
+
+.drag-hint.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.drag-hint-left {
+    display: inline-block;
+    animation: hint-left 1.4s ease-in-out infinite;
+    font-size: 18px;
+}
+
+.drag-hint-right {
+    display: inline-block;
+    animation: hint-right 1.4s ease-in-out infinite;
+    font-size: 18px;
+}
+
+@keyframes hint-left {
+    0%, 100% { transform: translateX(0);  opacity: 0.4; }
+    50%       { transform: translateX(-6px); opacity: 1; }
+}
+
+@keyframes hint-right {
+    0%, 100% { transform: translateX(0);  opacity: 0.4; }
+    50%       { transform: translateX(6px);  opacity: 1; }
+}
+
 .modules-drag {
     padding: 80px 0;
     background: var(--bg-primary);
@@ -687,8 +749,6 @@ h6 {
     min-height: 200px;
     height: 560px;
     max-height: 560px;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
     -ms-overflow-style: none;
     scrollbar-width: none;
     touch-action: pan-x;
@@ -716,7 +776,6 @@ h6 {
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: visible;
-    scroll-snap-align: start;
     cursor: grab;
 }
 
