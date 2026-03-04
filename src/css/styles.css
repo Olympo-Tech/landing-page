@@ -387,7 +387,7 @@ h6 {
 
 .carousel-viewport {
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
 }
 
 .carousel-track {
@@ -580,7 +580,7 @@ h6 {
 
 .names-belt-viewport {
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
 }
 
 .names-belt-track {
