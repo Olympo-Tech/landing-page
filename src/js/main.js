@@ -129,6 +129,42 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Contact form submission
+  var contactForm = document.getElementById('contactForm');
+  var formMessage = document.getElementById('formMessage');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      var submitBtn = contactForm.querySelector('[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      var data = {
+        name:    contactForm.elements['name'].value.trim(),
+        email:   contactForm.elements['email'].value.trim(),
+        phone:   contactForm.elements['phone'].value.trim(),
+        company: contactForm.elements['company'].value.trim(),
+        role:    contactForm.elements['role'].value.trim(),
+        message: contactForm.elements['message'].value.trim(),
+      };
+
+      try {
+        await submitContactForm(data);
+        formMessage.textContent = 'Mensagem enviada! Em breve entraremos em contato.';
+        formMessage.className = 'form-message success';
+        contactForm.reset();
+      } catch (err) {
+        formMessage.textContent = 'Ops! Não foi possível enviar. Tente novamente ou entre em contato pelo WhatsApp.';
+        formMessage.className = 'form-message error';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar Mensagem';
+      }
+    });
+  }
+
   // Reveal sections on scroll
   var revealTargets = document.querySelectorAll(
     '.hero, .about, .features, .modules-drag, .platform-prepared, .contact, .feature-card, .drag-card, .prepared-card, .contact-form-wrapper'

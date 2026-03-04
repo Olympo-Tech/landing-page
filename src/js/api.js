@@ -1,29 +1,39 @@
-// This file handles API requests to communicate with the CRM platform
+// HubSpot Forms API v3 — captura de leads OlympoTech
 
-const apiUrl = 'https://your-crm-api-endpoint.com'; // Replace with your actual CRM API endpoint
+var PORTAL_ID = '50475507';
+var FORM_GUID = 'b926d197-d900-431d-9f0b-ddf349bcacf8';
+var apiUrl = 'https://api.hsforms.com/submissions/v3/integration/submit/' + PORTAL_ID + '/' + FORM_GUID;
 
-// Function to submit the contact form data
 async function submitContactForm(data) {
-    try {
-        const response = await fetch(`${apiUrl}/contact`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
+    var nameParts = (data.name || '').trim().split(/\s+/);
+    var firstname = nameParts[0] || '';
+    var lastname = nameParts.slice(1).join(' ') || '';
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+    var payload = {
+        fields: [
+            { name: 'firstname', value: firstname },
+            { name: 'lastname',  value: lastname },
+            { name: 'email',     value: data.email   || '' },
+            { name: 'phone',     value: data.phone   || '' },
+            { name: 'company',   value: data.company || '' },
+            { name: 'hs_role',   value: data.role    || '' },
+            { name: 'message',   value: data.message || '' },
+        ],
+        context: {
+            pageUri: window.location.href,
+            pageName: 'OlympoTech - Landing Page',
+        },
+    };
 
-        const result = await response.json();
-        return result;
-    } catch (error) {
-        console.error('Error submitting contact form:', error);
-        throw error;
+    var response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+        throw new Error('Erro ao enviar formulário');
     }
-}
 
-// Export the function for use in other modules
-export { submitContactForm };
+    return response.json();
+}
